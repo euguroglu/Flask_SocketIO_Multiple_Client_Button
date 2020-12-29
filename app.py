@@ -14,7 +14,8 @@ def index():
 @socketio.on('message from user')
 def receive_message_from_user(message):
     print('USER MESSAGE:{}'.format(message))
-    emit('from flask',message)
+    #Broadcast to send same message to all clients not only one who wrote message
+    emit('from flask',message,broadcast=True)
 
 if __name__ == "__main__":
     socketio.run(app)
