@@ -17,5 +17,11 @@ def receive_message_from_user(message):
     #Broadcast to send same message to all clients not only one who wrote message
     emit('from flask',message,broadcast=True)
 
+#This code is creating message on the server side and emits to the clients
+@app.route('/orginate')
+def originate():
+    socketio.emit('server orginated','Something happened on the server')
+    return '<h1>Sent</h1>'
+
 if __name__ == "__main__":
     socketio.run(app)

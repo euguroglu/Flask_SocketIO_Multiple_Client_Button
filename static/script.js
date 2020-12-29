@@ -9,6 +9,11 @@
 
     socket.on('from flask',function(msg){
       alert(msg);
+
+    });
+
+    socket.on('server orginated',function(msg){
+      alert(msg);
     });
 
 });
